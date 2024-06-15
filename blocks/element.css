@@ -1,0 +1,48 @@
+.element {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.element__image {
+  width: 282px;
+  height: 282px;
+}
+
+.element__composite {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 20px;
+}
+
+.element__composite-title {
+  color: #000;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.element__composite-like-button {
+  background-image: url(../images/Like-vector.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  width: 21px;
+  height: 18px;
+  border: none;
+  color: rgba(0, 0, 0, 1);
+}
+
+.element__composite-like-button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  color: rgba(0, 0, 0, 0.5);
+}

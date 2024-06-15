@@ -1,0 +1,32 @@
+.header {
+  margin-top: 45px;
+  max-width: 880px;
+  max-height: 74px;
+  border-bottom: solid 1px;
+  opacity: 70%;
+  border-color: #545454;
+  padding-bottom: 41px;
+}
+
+.header__logo {
+  width: 173px;
+  height: 33px;
+  color: white;
+  border: none;
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    max-width: 320px;
+    max-height: 56px;
+    margin-top: 28px;
+    padding-bottom: 42px;
+  }
+
+  .header__logo {
+    width: 126px;
+    height: 24px;
+    margin-left: 27px;
+    border: none;
+  }
+}

@@ -1,0 +1,43 @@
+.footer {
+  height: 18px;
+  padding-bottom: 60px;
+  padding-top: 67px;
+}
+
+.footer__title {
+  color: rgba(84, 84, 84, 1);
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.21;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 620px) and (max-width: 920px) {
+  .footer__title {
+    color: rgba(84, 84, 84, 1);
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.21;
+    margin-top: 0;
+  }
+
+  .footer {
+    padding: 67px 0 60px;
+    max-width: 610px;
+  }
+}
+
+@media screen and (max-width: 626px) {
+  .footer {
+    padding: 48px 0 36px;
+    max-width: 282px;
+  }
+
+  .footer__title {
+    font-size: 14px;
+    line-height: 1.21;
+    margin: 0;
+  }
+}
