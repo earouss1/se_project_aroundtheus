@@ -127,6 +127,9 @@
     padding-bottom: 36px;
     line-height: 1.21;
     font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .profile__add-button {
