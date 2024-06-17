@@ -25,11 +25,14 @@
   color: #fff;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 42px;
   line-height: 1.14;
   grid-area: title;
   margin: 0;
   padding-bottom: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__sub-text {
@@ -40,6 +43,9 @@
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__edit-button {
@@ -55,7 +61,8 @@
 }
 
 .profile__edit-button:hover {
-  opacity: 1;
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 .profile__add-button {
@@ -72,7 +79,7 @@
 
 .profile__add-button:hover {
   cursor: pointer;
-  opacity: 1;
+  opacity: 0.7;
 }
 
 @media screen and (min-width: 626px) and (max-width: 750px) {
@@ -84,7 +91,6 @@
 
   .profile__text {
     font-size: 30px;
-    height: 22px;
   }
 
   .profile__edit-button {
@@ -99,7 +105,6 @@
   .profile__text {
     text-align: center;
     font-size: 22px;
-    height: 22px;
     line-height: 1.21;
     padding-bottom: 14px;
     max-width: 196px;
@@ -108,7 +113,6 @@
   .profile {
     flex-direction: column;
     max-width: 282px;
-    max-height: 286px;
     padding: 42px 0px 36px;
   }
 
@@ -123,7 +127,6 @@
   .profile__sub-text {
     width: 100%;
     text-align: center;
-    height: 14px;
     padding-bottom: 36px;
     line-height: 1.21;
     font-size: 14px;
@@ -141,7 +144,6 @@
 
   .profile__edit-button {
     width: 18px;
-    height: 18px;
     margin: 0;
     padding: 0;
   }
