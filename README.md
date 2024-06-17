@@ -17,3 +17,9 @@ This helps conserve and well organize your webiste in multiple devices. In this 
 ## Things I can do better
 
 Well, margins and paddings are still a little bit challeging for me. On my understanding, learning the proper position relies heavily on having the correct margins and paddings. I want to continue masturing tis craft. Also, this was my first time using figma, so it was a little bit challenging to understand the set up.
+
+## Links
+
+https://drive.google.com/file/d/1tcTDPn1kUGKgUo04j__rfw9WkOUsnEkw/view?usp=drive_link
+
+https://earouss1.github.io/se_project_aroundtheus/
