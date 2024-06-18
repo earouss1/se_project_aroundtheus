@@ -130,9 +130,6 @@
     padding-bottom: 36px;
     line-height: 1.21;
     font-size: 14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
   }
 
   .profile__add-button {
@@ -146,6 +143,7 @@
     width: 18px;
     margin: 0;
     padding: 0;
+    height: 18px;
   }
 
   .profile__avatar {
