@@ -45,6 +45,7 @@
   flex-direction: column;
   margin: 0;
   border: 1px;
+  width: 100%;
 }
 
 .modal__form-title {
