@@ -1,0 +1,135 @@
+.modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 19px;
+}
+
+.modal_opened {
+  display: flex;
+}
+
+.modal__container {
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 34px 36px 36px;
+}
+
+.modal__close-button {
+  background-image: url("../images/Close\ Icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  width: 45px;
+  height: 45px;
+  top: -45px;
+  right: -45px;
+  position: absolute;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0;
+  border: 1px;
+}
+
+.modal__form-title {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 24px;
+  height: 1.21;
+  font-weight: 900;
+  padding-bottom: 54px;
+  margin: 0;
+  width: 330px;
+  height: 23px;
+}
+
+.modal__form-profile-text {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin-bottom: 13.75px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 358px;
+  height: 27.26px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  padding: 0;
+}
+
+.modal__form-profile-sub-text {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 48px;
+  width: 358px;
+  height: 14px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  padding: 0;
+}
+
+.modal__save-button {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.21;
+  text-align: center;
+  width: 358px;
+  height: 50.15px;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 0;
+}
+
+.modal__save-button:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .modal__close-button {
+    width: 26px;
+    height: 26px;
+    top: -35px;
+    left: 264px;
+  }
+
+  .modal__form-profile-sub-text {
+    width: 238px;
+    height: 14px;
+  }
+
+  .modal__form-title {
+    width: 238px;
+    height: 22px;
+  }
+
+  .modal__form-profile-text {
+    width: 238px;
+    height: 14px;
+  }
+
+  .modal__save-button {
+    width: 238px;
+    height: 46px;
+  }
+}
