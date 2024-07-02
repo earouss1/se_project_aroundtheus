@@ -89,20 +89,3 @@ initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
   cardListElement.append(cardElement);
 });
-
-/*for (let i = 0; i < initialCards.length; i++) {
-  const data = initialCards[i];
-
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardImageElement = cardElement.querySelector(".element__image");
-  const cardTitleElement = cardElement.querySelector(
-    ".element__composite-title"
-  );
-
-  cardListElement.prepend(cardElement);
-
-  cardTitleElement.textContent = data.name;
-  cardImageElement.src = data.link;
-  cardTitleElement.alt = data.name;
-}*/
