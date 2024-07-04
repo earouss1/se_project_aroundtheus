@@ -29,8 +29,8 @@
   background-size: contain;
   background-color: transparent;
   border: none;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   top: -45px;
   right: -45px;
   position: absolute;
@@ -59,13 +59,13 @@
   height: 23px;
 }
 
-.modal__form-profile-text {
+.modal__form-input {
   border-left: none;
   border-right: none;
   border-top: none;
-  margin-bottom: 13.75px;
+  margin-bottom: 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  width: 358px;
+  width: 100%;
   height: 27.26px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -74,19 +74,8 @@
   padding: 0;
 }
 
-.modal__form-profile-sub-text {
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 48px;
-  width: 358px;
-  height: 14px;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.21;
-  padding: 0;
+.modal__form-input-fix {
+  margin-bottom: 0;
 }
 
 .modal__save-button {
@@ -95,11 +84,12 @@
   font-size: 18px;
   line-height: 1.21;
   text-align: center;
-  width: 358px;
+  width: 100%;
   height: 50.15px;
   background-color: rgba(0, 0, 0, 1);
   color: rgba(255, 255, 255, 1);
   padding: 0;
+  margin-top: 48px;
 }
 
 .modal__save-button:hover {
@@ -114,7 +104,7 @@
     left: 264px;
   }
 
-  .modal__form-profile-sub-text {
+  .modal__form-iput {
     width: 238px;
     height: 14px;
   }
@@ -122,11 +112,6 @@
   .modal__form-title {
     width: 238px;
     height: 22px;
-  }
-
-  .modal__form-profile-text {
-    width: 238px;
-    height: 14px;
   }
 
   .modal__save-button {
