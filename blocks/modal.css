@@ -51,7 +51,7 @@
 .modal__form-title {
   font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
-  height: 1.21;
+  line-height: 1.21;
   font-weight: 900;
   padding-bottom: 54px;
   margin: 0;
@@ -100,8 +100,8 @@
   .modal__close-button {
     width: 26px;
     height: 26px;
-    top: -45px;
-    left: 270px;
+    top: -39px;
+    left: 250px;
   }
 
   .modal__form-iput {
@@ -111,12 +111,16 @@
 
   .modal__form-title {
     width: 100%;
-    height: 22px;
     font-size: 18px;
+    line-height: 22px;
   }
 
   .modal__save-button {
-    width: 238px;
+    width: 100%;
     height: 46px;
+  }
+
+  .modal__container {
+    width: 282px;
   }
 }
