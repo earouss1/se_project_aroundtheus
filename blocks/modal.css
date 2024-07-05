@@ -90,6 +90,7 @@
   color: rgba(255, 255, 255, 1);
   padding: 0;
   margin-top: 48px;
+  border: none;
 }
 
 .modal__save-button:hover {
@@ -118,9 +119,14 @@
   .modal__save-button {
     width: 100%;
     height: 46px;
+    font-size: 14px;
   }
 
   .modal__container {
     width: 282px;
+  }
+
+  .modal__container {
+    padding: 22px 22px 25px;
   }
 }
