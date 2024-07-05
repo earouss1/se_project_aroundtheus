@@ -100,18 +100,19 @@
   .modal__close-button {
     width: 26px;
     height: 26px;
-    top: -35px;
-    left: 264px;
+    top: -45px;
+    left: 270px;
   }
 
   .modal__form-iput {
-    width: 238px;
+    width: 100%;
     height: 14px;
   }
 
   .modal__form-title {
-    width: 238px;
+    width: 100%;
     height: 22px;
+    font-size: 18px;
   }
 
   .modal__save-button {
