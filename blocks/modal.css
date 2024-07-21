@@ -1,5 +1,4 @@
 .modal {
-  display: none;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -10,10 +9,15 @@
   right: 0;
   bottom: 0;
   padding: 0 19px;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal_opened {
   display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.7s, opacity 0.8s ease;
 }
 
 .modal__container {
@@ -34,9 +38,12 @@
   top: -45px;
   right: -45px;
   position: absolute;
-  cursor: pointer;
   padding: 0;
   margin: 0;
+}
+
+.modal__close-button:hover {
+  cursor: pointer;
 }
 
 .modal__form {
@@ -78,6 +85,14 @@
   margin-bottom: 0;
 }
 
+.modal__form-add-card {
+  margin-bottom: 29.73px;
+}
+
+.modal__form-add-card-fixx {
+  margin-bottom: 0;
+}
+
 .modal__save-button {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -97,12 +112,58 @@
   cursor: pointer;
 }
 
+.modal__container-for-preview {
+  background: transparent;
+  padding: 0;
+  margin: auto;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__for-preview-image {
+  width: 100%;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__for-preview-caption {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.21;
+  bottom: 45px;
+  left: 45px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.modal__for-preview-btn {
+  background-image: url("../images/Close\ Icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  top: -31px;
+  right: -10px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
 @media screen and (min-width: 300px) and (max-width: 600px) {
   .modal__close-button {
     width: 26px;
     height: 26px;
     top: -39px;
     left: 250px;
+  }
+
+  .modal__for-preview-btn {
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 30px;
   }
 
   .modal__form-iput {
