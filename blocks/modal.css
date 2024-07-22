@@ -93,7 +93,7 @@
   margin-bottom: 0;
 }
 
-.modal__save-button {
+.modal__submit-button {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -108,7 +108,7 @@
   border: none;
 }
 
-.modal__save-button:hover {
+.modal__submit-button:hover {
   cursor: pointer;
 }
 
@@ -136,7 +136,7 @@
   color: rgba(255, 255, 255, 1);
 }
 
-.modal__for-preview-btn {
+.modal__close-button-preview {
   background-image: url("../images/Close\ Icon.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -159,11 +159,11 @@
     left: 250px;
   }
 
-  .modal__for-preview-btn {
+  .modal__close-button-preview {
     width: 30px;
     height: 30px;
     top: 10px;
-    right: 30px;
+    left: 220px;
   }
 
   .modal__form-iput {

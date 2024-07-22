@@ -61,7 +61,7 @@ const previewModalCaption = previewImageModal.querySelector(
   ".modal__for-preview-caption"
 );
 const previewCloseButton = previewImageModal.querySelector(
-  ".modal__for-preview-btn"
+  "#modal-close-button"
 );
 
 // Functions
@@ -91,6 +91,7 @@ function handleAddCardElementSubmit(evt) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link });
+  evt.target.reset();
   closePopup(profileAddCardModal);
 }
 
@@ -115,12 +116,14 @@ function getCardElement(data) {
 
   cardImageElement.addEventListener("click", () => {
     previewModalImage.src = data.link;
-    openModal(previewImageModal);
+    previewModalImage.alt = data.name;
     previewModalCaption.textContent = data.name;
+    openModal(previewImageModal);
   });
-  previewCloseButton.addEventListener("click", () => {
-    closePopup(previewImageModal);
-  });
+
+  /*previewCloseButton.addEventListener("click", () =>
+    closePopup(previewImageModal)
+  );*/
 
   cardTitleElement.textContent = data.name;
   cardImageElement.src = data.link;
@@ -150,6 +153,10 @@ addNewCardButton.addEventListener("click", () =>
 
 addCardModalCloseButton.addEventListener("click", () =>
   closePopup(profileAddCardModal)
+);
+
+previewCloseButton.addEventListener("click", () =>
+  closePopup(previewImageModal)
 );
 
 // Loops
