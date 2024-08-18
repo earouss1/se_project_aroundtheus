@@ -44,6 +44,7 @@
 
 .modal__close-button:hover {
   cursor: pointer;
+  opacity: 60%;
 }
 
 .modal__form {
@@ -58,12 +59,14 @@
 .modal__form-label {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   position: relative;
+  margin: 0 auto;
+  column-gap: 13px;
 }
 
 .modal__form-error {
   position: absolute;
+  top: 35px;
 }
 
 .modal__form-error_visible {
@@ -102,11 +105,7 @@
   border-bottom: 1px solid rgba(250, 0, 0, 1);
 }
 
-/*.modal__form-error_type_error {
-  border-bottom: 1px solid rgba(250, 0, 0, 1);
-}*/
-
-/*.modal__form-input-fix {
+.modal__form-input-fix {
   margin-bottom: 0;
 }
 
@@ -116,7 +115,7 @@
 
 .modal__form-add-card-fixx {
   margin-bottom: 0;
-} */
+}
 
 .modal__submit-button {
   font-family: "Inter", Arial, sans-serif;
@@ -130,17 +129,17 @@
   color: rgba(255, 255, 255, 1);
   padding: 0;
   margin-top: 48px;
-  border: none;
+  border: 10px;
 }
 
 .modal__submit-button:hover {
   cursor: pointer;
-  background-color: rgba(128, 128, 128, 1);
 }
 
 .modal__submit-button_disabled {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
   color: rgba(128, 128, 128, 1);
+  border-color: rgba(128, 128, 128, 1);
 }
 
 .modal__container-for-preview {
