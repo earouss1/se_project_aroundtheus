@@ -55,6 +55,25 @@
   width: 100%;
 }
 
+.modal__form-label {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+}
+
+.modal__form-error {
+  position: absolute;
+}
+
+.modal__form-error_visible {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.21;
+  color: rgba(250, 0, 0, 1);
+}
+
 .modal__form-title {
   font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
@@ -67,12 +86,10 @@
 }
 
 .modal__form-input {
-  border-left: none;
-  border-right: none;
-  border-top: none;
+  border: none;
   margin-bottom: 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  width: 100%;
+  width: 358px;
   height: 27.26px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -81,7 +98,15 @@
   padding: 0;
 }
 
-.modal__form-input-fix {
+.modal__form-input_type_error {
+  border-bottom: 1px solid rgba(250, 0, 0, 1);
+}
+
+/*.modal__form-error_type_error {
+  border-bottom: 1px solid rgba(250, 0, 0, 1);
+}*/
+
+/*.modal__form-input-fix {
   margin-bottom: 0;
 }
 
@@ -91,9 +116,9 @@
 
 .modal__form-add-card-fixx {
   margin-bottom: 0;
-}
+} */
 
-.modal__save-button {
+.modal__submit-button {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -108,8 +133,14 @@
   border: none;
 }
 
-.modal__save-button:hover {
+.modal__submit-button:hover {
   cursor: pointer;
+  background-color: rgba(128, 128, 128, 1);
+}
+
+.modal__submit-button_disabled {
+  background-color: transparent;
+  color: rgba(128, 128, 128, 1);
 }
 
 .modal__container-for-preview {
@@ -136,7 +167,7 @@
   color: rgba(255, 255, 255, 1);
 }
 
-.modal__for-preview-btn {
+.modal__close-button-preview {
   background-image: url("../images/Close\ Icon.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -159,7 +190,7 @@
     left: 250px;
   }
 
-  .modal__for-preview-btn {
+  .modal__close-button-preview {
     width: 30px;
     height: 30px;
     top: 10px;
