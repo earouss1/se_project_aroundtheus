@@ -190,8 +190,9 @@
   .modal__close-button {
     width: 26px;
     height: 26px;
+    left: unset;
     top: -45px;
-    left: 253px;
+    right: 7px;
   }
 
   .modal__close-button-preview {
@@ -210,6 +211,7 @@
     width: 238px;
     font-size: 18px;
     line-height: 22px;
+    font-weight: 900;
     height: 22px;
   }
 
