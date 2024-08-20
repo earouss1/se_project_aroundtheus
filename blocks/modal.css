@@ -60,8 +60,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 0 auto;
-  column-gap: 13px;
+  padding: 0;
+}
+
+.modal__form-label_fix {
+  margin-bottom: 13px;
 }
 
 .modal__form-error {
@@ -92,7 +95,7 @@
   border: none;
   margin-bottom: 14px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  width: 358px;
+  width: 100%;
   height: 27.26px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -134,12 +137,12 @@
 
 .modal__submit-button:hover {
   cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .modal__submit-button_disabled {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
   color: rgba(128, 128, 128, 1);
-  border-color: rgba(128, 128, 128, 1);
 }
 
 .modal__container-for-preview {
