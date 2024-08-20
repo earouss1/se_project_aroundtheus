@@ -70,6 +70,7 @@
 .modal__form-error {
   position: absolute;
   top: 35px;
+  left: 0;
 }
 
 .modal__form-error_visible {
@@ -78,6 +79,7 @@
   font-size: 12px;
   line-height: 1.21;
   color: rgba(250, 0, 0, 1);
+  z-index: 1;
 }
 
 .modal__form-title {
@@ -188,8 +190,8 @@
   .modal__close-button {
     width: 26px;
     height: 26px;
-    top: -39px;
-    left: 250px;
+    top: -45px;
+    left: 253px;
   }
 
   .modal__close-button-preview {
@@ -205,9 +207,10 @@
   }
 
   .modal__form-title {
-    width: 100%;
+    width: 238px;
     font-size: 18px;
     line-height: 22px;
+    height: 22px;
   }
 
   .modal__save-button {
