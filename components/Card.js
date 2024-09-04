@@ -6,17 +6,13 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._cardElement
-      .querySelector(".element__composite-like-button")
-      .addEventListener("click", () => {
-        this._handleLikeButton();
-      });
+    this._cardLikeButton.addEventListener("click", () => {
+      this._handleLikeButton();
+    });
 
-    this._cardElement
-      .querySelector(".element__delete-button")
-      .addEventListener("click", () => {
-        this._handleDeleteButton();
-      });
+    this._cardDeleteButton.addEventListener("click", () => {
+      this._handleDeleteButton();
+    });
 
     this._cardImageElement.addEventListener("click", () => {
       this._handleImageClick(this._data);
@@ -24,13 +20,13 @@ export default class Card {
   }
 
   _handleDeleteButton() {
-    this._cardElement.remove(".element");
+    this._cardElement.remove(this._cardElement);
   }
 
   _handleLikeButton() {
-    this._cardElement
-      .querySelector(".element__composite-like-button")
-      .classList.toggle("element__composite-like-button_active");
+    this._cardLikeButton.classList.toggle(
+      "element__composite-like-button_active"
+    );
   }
 
   _getCardTemplate() {
@@ -47,10 +43,16 @@ export default class Card {
     this._cardTitleElement = this._cardElement.querySelector(
       ".element__composite-title"
     );
+    this._cardDeleteButton = this._cardElement.querySelector(
+      ".element__delete-button"
+    );
+    this._cardLikeButton = this._cardElement.querySelector(
+      ".element__composite-like-button"
+    );
 
     this._cardTitleElement.textContent = this._data.name;
     this._cardImageElement.src = this._data.link;
-    this._cardTitleElement.alt = this._data.name;
+    this._cardImageElement.alt = this._data.name;
 
     this._setEventListeners();
 
