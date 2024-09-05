@@ -100,6 +100,7 @@ function handleProfileEditSubmit(evt) {
   profileText.textContent = profileInputText.value;
   profileSubText.textContent = profileInputSubText.value;
   closeModal(profileEditModal);
+  editFormValidator.resetValidation();
 }
 
 function handleAddCardElementSubmit(evt) {
@@ -109,6 +110,7 @@ function handleAddCardElementSubmit(evt) {
   renderCard({ name, link });
   evt.target.reset();
   closeModal(profileAddCardModal);
+  addFormValidator.resetValidation();
 }
 
 function handleImageClick(data) {
