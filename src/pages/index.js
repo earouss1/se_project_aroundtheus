@@ -46,8 +46,8 @@ addFormValidator.enableValidation();
 
 // Instantiated UserInfo class
 const userInfo = new UserInfo({
-  profileText: "#profile-text",
-  profileSubText: "#profile-sub-text",
+  profileName: "#profile-text",
+  profileJob: "#profile-sub-text",
 });
 
 // Instantiated ModalWithForm class
@@ -83,16 +83,16 @@ function handleAddCardElementSubmit({ title, url }) {
 
 function handleProfileEditElementSubmit(userdata) {
   userInfo.setUserInfo({
-    name: userdata.profileText,
-    description: userdata.profileSubText,
+    profileText: userdata.text,
+    profileSubText: userdata["sub-text"],
   });
   editProfileModal.close();
 }
 
 profileEditButton.addEventListener("click", () => {
   const currentUserInfo = userInfo.getUserInfo();
-  profileInputText.value = currentUserInfo.name;
-  profileInputSubText.value = currentUserInfo.description;
+  profileInputText.value = currentUserInfo.profileText;
+  profileInputSubText.value = currentUserInfo.profileSubText;
   editProfileModal.open();
 });
 

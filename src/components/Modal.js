@@ -2,6 +2,9 @@ export default class Modal {
   constructor({ modalSelector }) {
     this._modalElement = document.querySelector(modalSelector);
     this._handleEscapeClose = this._handleEscapeClose.bind(this);
+    this._handleCloseButtons = document.querySelectorAll(
+      ".modal__close-button"
+    );
   }
 
   open() {
@@ -25,6 +28,11 @@ export default class Modal {
       if (evt.target.classList.contains("modal_opened")) {
         this.close();
       }
+    });
+
+    this._handleCloseButtons.forEach((button) => {
+      this._modalElement.closest(".modal");
+      button.addEventListener("click", () => this.close());
     });
   }
 }

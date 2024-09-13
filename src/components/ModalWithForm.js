@@ -12,7 +12,7 @@ export default class ModalWithForms extends Modal {
     const formInputValues = {};
 
     inputList.forEach((input) => {
-      formInputValues[input.name] = input.values;
+      formInputValues[input.name] = input.value;
     });
     return formInputValues;
   }
