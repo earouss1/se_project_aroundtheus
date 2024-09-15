@@ -58,12 +58,18 @@ export default class FormValidator {
     });
 
     if (hasInvalidInput) {
-      this._submitButtonElement.classList.add(
-        this._options.inactiveButtonClass
-      );
-      return (this._submitButtonElement.disabled = true);
+      this.disableButton();
+    } else {
+      return this._enableButton();
     }
+  }
 
+  disableButton() {
+    this._submitButtonElement.classList.add(this._options.inactiveButtonClass);
+    this._submitButtonElement.disabled = true;
+  }
+
+  _enableButton() {
     this._submitButtonElement.classList.remove(
       this._options.inactiveButtonClass
     );

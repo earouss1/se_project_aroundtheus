@@ -2,12 +2,10 @@
 
 import {
   initialCards,
-  profileEditForm,
   profileInputText,
   profileInputSubText,
   addNewCardButton,
   profileEditButton,
-  addCardForm,
   options,
 } from "../utils/constants.js";
 
@@ -38,11 +36,21 @@ const cardsSection = new Section(
 cardsSection.renderItems();
 
 // Instantiated FormValidator class
-const editFormValidator = new FormValidator(options, profileEditForm);
-const addFormValidator = new FormValidator(options, addCardForm);
+const formValidators = {};
 
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+const enableValidation = (options) => {
+  const formElements = Array.from(
+    document.querySelectorAll(options.formSelector)
+  );
+  formElements.forEach((formElement) => {
+    const validator = new FormValidator(options, formElement);
+    const formName = formElement.getAttribute("name");
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(options);
 
 // Instantiated UserInfo class
 const userInfo = new UserInfo({
@@ -78,7 +86,8 @@ function handleAddCardElementSubmit({ title, url }) {
   const data = { name: title, link: url };
   cardsSection.addItem(generateCard(data));
   addCardModal.close();
-  addFormValidator.disableButton();
+  //addFormValidator.disableButton();
+  formValidators["add-cards"].disableButton();
 }
 
 function handleProfileEditElementSubmit(userdata) {

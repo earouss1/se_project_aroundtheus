@@ -2,7 +2,9 @@ export default class Modal {
   constructor({ modalSelector }) {
     this._modalElement = document.querySelector(modalSelector);
     this._handleEscapeClose = this._handleEscapeClose.bind(this);
-    this._handleCloseButtons = document.querySelector(".modal__close-button");
+    this._handleCloseButtons = this._modalElement.querySelector(
+      ".modal__close-button"
+    );
   }
 
   open() {
@@ -28,9 +30,6 @@ export default class Modal {
       }
     });
 
-    this._handleCloseButtons.forEach((button) => {
-      this._modalElement.closest(".modal");
-      button.addEventListener("click", () => this.close());
-    });
+    this._handleCloseButtons.addEventListener("click", () => this.close());
   }
 }
