@@ -48,13 +48,13 @@ export default class APi {
       });
   }
 
-  setUserInfo({ name, about }) {
+  setUserUpdate({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name,
-        about,
+        name: name,
+        about: about,
       }),
     })
       .then((res) => {
@@ -108,11 +108,13 @@ export default class APi {
       });
   }
 
-  profilePictureUpdate() {
+  setPictureUpdate(pictureUrl) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ avatar }),
+      body: JSON.stringify({
+        avatar: pictureUrl,
+      }),
     })
       .then((res) => {
         return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);

@@ -1,7 +1,6 @@
 // All Imports
 
 import {
-  initialCards,
   profileInputText,
   profileInputSubText,
   addNewCardButton,
@@ -9,7 +8,7 @@ import {
   options,
   changePictureform,
   changeProfilePic,
-  areYouSureForm,
+  confirmDeleteForm,
   profilePictureChngBtn,
 } from "../utils/constants.js";
 
@@ -93,6 +92,30 @@ const editProfileModal = new ModalWithForms(
 );
 editProfileModal.setEventListeners();
 
+function handleChangePictureElementSubmit(userdata) {
+  const pictureUlr = userdata.picture;
+  if (!pictureUlr) {
+    console.error("Link is missing");
+  }
+  changePictureModal.renderLoadingMessage(true);
+
+  api
+    .setPictureUpdate(pictureUlr)
+    .then((pictureData) => {
+      userInfo.setUserPicture(pictureData);
+      formValidators["profile-pic-chng"].disableButton();
+      changePictureModal.close();
+    })
+    .catch((error) => {
+      console.error(
+        `An error happened when updating user information: ${error}`
+      );
+    })
+    .finally(() => {
+      changePictureModal.renderLoadingMessage();
+    });
+}
+
 const changePictureModal = new ModalWithForms(
   "#profile-chng-modal",
   handleChangePictureElementSubmit
@@ -105,9 +128,14 @@ const imagePreviewModal = new ModalWithImages({
 });
 imagePreviewModal.setEventListeners();
 
-// Adding Functionality to the class Instance
+// Instantiated ModalWithConfirmDelete class
+const confirmDeleteModal = new ModalWithConfirmDelete(
+  "#chng-img-qt-modal",
+  handleCardDeleteClick
+);
+confirmDeleteModal.setEventListeners();
 
-function handleChangePictureElementSubmit({ link }) {}
+// Adding Functionality and API to the class Instance
 
 function handleImageClick(data) {
   imagePreviewModal.open(data);
@@ -115,10 +143,26 @@ function handleImageClick(data) {
 
 function handleAddCardElementSubmit({ title, url }) {
   const data = { name: title, link: url };
-  cardsSection.addItem(generateCard(data));
-  addCardModal.close();
-  //addFormValidator.disableButton();
-  formValidators["add-cards"].disableButton();
+  addCardModal.renderLoadingMessage(true);
+  api
+    .createNewCard(data)
+    .then((cardCreated) => {
+      cardsSection.addItem(generateCard(cardCreated));
+      addCardModal.close();
+      //addFormValidator.disableButton();
+      formValidators["add-cards"].disableButton();
+    })
+    .catch((error) => {
+      console.error("Error occured while adding card", error);
+    })
+    .finally(() => {
+      addCardModal.renderLoadingMessage();
+    });
+
+  // cardsSection.addItem(generateCard(data));
+  // addCardModal.close();
+  // //addFormValidator.disableButton();
+  // formValidators["add-cards"].disableButton();
 }
 
 function handleProfileEditElementSubmit(userdata) {
@@ -126,8 +170,62 @@ function handleProfileEditElementSubmit(userdata) {
     profileText: userdata.text,
     profileSubText: userdata["sub-text"],
   });
-  editProfileModal.close();
-  formValidators["edit-profile"].disableButton();
+  editProfileModal.renderLoadingMessage(true);
+
+  api
+    .setUserUpdate(userdata)
+    .then((newData) => {
+      userInfo.setUserInfo(newData.userdata);
+
+      editProfileModal.close();
+      formValidators["edit-profile"].disableButton();
+    })
+    .catch((error) => {
+      console.error("Error has occured", error);
+    })
+    .finally(() => {
+      editProfileModal.renderLoadingMessage();
+    });
+}
+
+function handleCardDeleteClick(card) {
+  confirmDeleteModal.handleRemoveVerify(() => {
+    confirmDeleteModal.renderLoading(true);
+    api
+      .deleteCards(card._id)
+      .then(() => {
+        card.handleDeleteCard();
+        confirmDeleteModal.close();
+      })
+      .catch((error) => {
+        console.error("Error occured while deleting card", error);
+      })
+      .finally(() => {
+        confirmDeleteModal.renderLoading();
+      });
+  });
+}
+
+function handleCardLikeClick(card) {
+  if (!card.getIsLike()) {
+    api
+      .addLikeforCard(card.getId())
+      .then(() => {
+        card.handleLikeButton();
+      })
+      .catch((error) => {
+        console.error(`Can't add like. Please check again: ${error}`);
+      });
+  } else {
+    api
+      .removeLikefromCard(card.getId())
+      .then(() => {
+        card.handleLikeButton();
+      })
+      .catch((error) => {
+        console.error(`Can't remove like. Check again: ${error}`);
+      });
+  }
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -147,17 +245,12 @@ profilePictureChngBtn.addEventListener("click", () => {
 
 // Get CArd and Profile modal
 api
- .loadAllData().then(([cards, userData]) => {
-  cardsSection.renderItems(cards);
-  userInfo.setUserInfo(userData);
-  userInfo.getUserInfo(userData);
-});
- .catch((error) => {
-   console.error("Error Loading", error);
-});
-
-//function handleImageClick(data) {
-//imagePreviewModal.open(data);
-//}
-
-//
+  .loadAllData()
+  .then(([cards, userData]) => {
+    cardsSection.renderItems(cards);
+    userInfo.setUserInfo(userData);
+    userInfo.setUserPicture(userData);
+  })
+  .catch((error) => {
+    // console.error(`Error: Need a picture: ${error}`);
+  });

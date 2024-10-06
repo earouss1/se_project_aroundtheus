@@ -3,7 +3,7 @@ export default class Modal {
     this._modalElement = document.querySelector(modalSelector);
     this._handleEscapeClose = this._handleEscapeClose.bind(this);
     this._handleCloseButtons = this._modalElement.querySelector(
-      ".modal__close-button"
+      "#modal-close-button"
     );
   }
 
