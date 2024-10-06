@@ -129,10 +129,9 @@ const imagePreviewModal = new ModalWithImages({
 imagePreviewModal.setEventListeners();
 
 // Instantiated ModalWithConfirmDelete class
-const confirmDeleteModal = new ModalWithConfirmDelete(
-  "#chng-img-qt-modal",
-  handleCardDeleteClick
-);
+const confirmDeleteModal = new ModalWithConfirmDelete({
+  modalSelector: "#chng-img-qt-modal",
+});
 confirmDeleteModal.setEventListeners();
 
 // Adding Functionality and API to the class Instance

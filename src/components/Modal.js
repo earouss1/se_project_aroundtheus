@@ -3,7 +3,7 @@ export default class Modal {
     this._modalElement = document.querySelector(modalSelector);
     this._handleEscapeClose = this._handleEscapeClose.bind(this);
     this._handleCloseButtons = this._modalElement.querySelector(
-      "#modal-close-button"
+      ".modal__close-button"
     );
   }
 
@@ -13,7 +13,7 @@ export default class Modal {
   }
 
   close() {
-    console.log("close");
+    //console.log("close");
     this._modalElement.classList.remove("modal_opened");
     document.removeEventListener("keydown", this._handleEscapeClose);
   }
