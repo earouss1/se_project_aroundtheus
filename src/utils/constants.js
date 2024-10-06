@@ -67,6 +67,13 @@ export const allCloseButtons = document.querySelectorAll(
   ".modal__close-button"
 );
 
+export const changePictureform = document.forms["chng-picture-modal-form"];
+export const areYouSureForm = document.forms["areusure-modal-form"];
+export const changeProfilePic = document.querySelector(".profile__avatar");
+export const profilePictureChngBtn = document.querySelector(
+  "#profile-avatar-edit"
+);
+
 export const options = {
   formSelector: ".modal__form",
   inputSelector: ".modal__form-input",

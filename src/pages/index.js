@@ -7,6 +7,10 @@ import {
   addNewCardButton,
   profileEditButton,
   options,
+  changePictureform,
+  changeProfilePic,
+  areYouSureForm,
+  profilePictureChngBtn,
 } from "../utils/constants.js";
 
 import ModalWithImages from "../components/ModalWithImages.js";
@@ -16,24 +20,41 @@ import ModalWithForms from "../components/ModalWithForm.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import "../pages/index.css";
+import APi from "../components/Api.js";
+import ModalWithConfirmDelete from "../components/ModalAreYouSure.js";
+
+// API set-up
+
+const api = new APi({
+  baseUrl: " https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "85fd4e98-2985-4ae5-a23e-063a04cf6983",
+    "Content-Type": "application/json",
+  },
+});
 
 // Passing Functionality for Card
 
 function generateCard(data) {
-  const card = new Card(data, "#card-template", handleImageClick);
+  const card = new Card(
+    data,
+    "#card-template",
+    handleImageClick,
+    handleCardDeleteClick,
+    handleCardLikeClick
+  );
   return card.getView();
 }
 
 const cardsSection = new Section(
   {
-    items: initialCards,
+    //items: initialCards,
     renderer: (data) => {
       cardsSection.addItem(generateCard(data));
     },
   },
   ".elements__list"
 );
-cardsSection.renderItems();
 
 // Instantiated FormValidator class
 const formValidators = {};
@@ -56,6 +77,7 @@ enableValidation(options);
 const userInfo = new UserInfo({
   profileName: "#profile-text",
   profileJob: "#profile-sub-text",
+  pictureSelector: ".profile__avatar",
 });
 
 // Instantiated ModalWithForm class
@@ -71,6 +93,12 @@ const editProfileModal = new ModalWithForms(
 );
 editProfileModal.setEventListeners();
 
+const changePictureModal = new ModalWithForms(
+  "#profile-chng-modal",
+  handleChangePictureElementSubmit
+);
+changePictureModal.setEventListeners();
+
 // Instantiated ModalWithImage class
 const imagePreviewModal = new ModalWithImages({
   modalSelector: "#preview-image-modal",
@@ -78,6 +106,9 @@ const imagePreviewModal = new ModalWithImages({
 imagePreviewModal.setEventListeners();
 
 // Adding Functionality to the class Instance
+
+function handleChangePictureElementSubmit({ link }) {}
+
 function handleImageClick(data) {
   imagePreviewModal.open(data);
 }
@@ -96,6 +127,7 @@ function handleProfileEditElementSubmit(userdata) {
     profileSubText: userdata["sub-text"],
   });
   editProfileModal.close();
+  formValidators["edit-profile"].disableButton();
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -108,3 +140,24 @@ profileEditButton.addEventListener("click", () => {
 addNewCardButton.addEventListener("click", () => {
   addCardModal.open();
 });
+
+profilePictureChngBtn.addEventListener("click", () => {
+  changePictureModal.open();
+});
+
+// Get CArd and Profile modal
+api
+ .loadAllData().then(([cards, userData]) => {
+  cardsSection.renderItems(cards);
+  userInfo.setUserInfo(userData);
+  userInfo.getUserInfo(userData);
+});
+ .catch((error) => {
+   console.error("Error Loading", error);
+});
+
+//function handleImageClick(data) {
+//imagePreviewModal.open(data);
+//}
+
+//
