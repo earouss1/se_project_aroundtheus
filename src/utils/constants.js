@@ -67,10 +67,6 @@ export const allCloseButtons = document.querySelectorAll(
   ".modal__close-button"
 );
 
-export const confirmDeleteButton = document.querySelector(
-  ".element__delete-button"
-);
-
 export const changePictureform = document.forms["chng-picture-modal-form"];
 export const confirmDeleteForm = document.forms["areusure-modal-form"];
 export const changeProfilePic = document.querySelector(".profile__avatar");

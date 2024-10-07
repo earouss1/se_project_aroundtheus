@@ -40,15 +40,15 @@ export default class Card {
     return this._id;
   }
 
-  getIsliked() {
+  getIsLiked() {
     return this._isLiked;
   }
 
-  _handleDeleteButton() {
-    this._cardElement.remove(this._cardElement);
-  }
+  // _handleDeleteButton() {
+  //   this._cardElement.remove(this._cardElement);
+  // }
 
-  _handleLikeButton() {
+  handleLikeButton() {
     this._cardLikeButton.classList.toggle(
       "element__composite-like-button_active"
     );
