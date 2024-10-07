@@ -9,17 +9,17 @@ export default class UserInfo {
     return {
       profileText: this._profileName.textContent,
       profileSubText: this._profileJob.textContent,
-      //picture: this._profilePicture.src,
+      avatar: this._profilePicture.src,
     };
   }
 
-  setUserInfo({ profileText, profileSubText, picture }) {
+  setUserInfo({ profileText, profileSubText, avatar }) {
     this._profileName.textContent = profileText;
     this._profileJob.textContent = profileSubText;
-    this.setUserPicture(picture);
+    this.setUserPicture(avatar);
   }
 
-  setUserPicture({ picture }) {
-    this._profilePicture.src = picture;
+  setUserPicture({ avatar }) {
+    this._profilePicture.src = avatar;
   }
 }

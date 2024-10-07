@@ -165,7 +165,8 @@ function handleProfileEditElementSubmit(userdata) {
 }
 
 function handleChangePictureElementSubmit(userdata) {
-  const pictureUlr = userdata.picture;
+  const pictureUlr = userdata.profilePicUrl;
+  console.log(userdata);
   if (!pictureUlr) {
     console.error("Link is missing");
   }
@@ -174,6 +175,7 @@ function handleChangePictureElementSubmit(userdata) {
   api
     .setPictureUpdate(pictureUlr)
     .then((pictureData) => {
+      console.log(pictureData);
       userInfo.setUserPicture(pictureData);
       changePictureModal.close();
       formValidators["profile-pic-chng"].disableButton();
@@ -253,5 +255,5 @@ api
     userInfo.setUserPicture(userData);
   })
   .catch((error) => {
-    // console.error(`Can't load card or picture: ${error}`);
+    console.error(`Can't load card or picture: ${error}`);
   });
