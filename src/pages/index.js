@@ -253,5 +253,5 @@ api
     userInfo.setUserPicture(userData);
   })
   .catch((error) => {
-    console.error(`Can't load card or picture: ${error}`);
+    // console.error(`Can't load card or picture: ${error}`);
   });
