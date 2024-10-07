@@ -44,10 +44,6 @@ export default class Card {
     return this._isLiked;
   }
 
-  // _handleDeleteButton() {
-  //   this._cardElement.remove(this._cardElement);
-  // }
-
   handleLikeButton() {
     this._cardLikeButton.classList.toggle(
       "element__composite-like-button_active"

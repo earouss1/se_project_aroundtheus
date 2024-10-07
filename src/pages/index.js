@@ -74,7 +74,7 @@ enableValidation(options);
 const userInfo = new UserInfo({
   profileName: "#profile-text",
   profileJob: "#profile-sub-text",
-  pictureSelector: ".profile__avatar",
+  profilePicture: ".profile__avatar",
 });
 
 // Instantiated ModalWithForm class
@@ -145,10 +145,9 @@ function handleProfileEditElementSubmit(userdata) {
   });
   editProfileModal.renderLoadingMessage(true);
   const data = {
-    name: userdata.text,
-    about: userdata["sub-text"],
+    profileText: userdata.text,
+    profileSubText: userdata["sub-text"],
   };
-
   api
     .setUserUpdate(data)
     .then((newData) => {
@@ -176,8 +175,8 @@ function handleChangePictureElementSubmit(userdata) {
     .setPictureUpdate(pictureUlr)
     .then((pictureData) => {
       userInfo.setUserPicture(pictureData);
-      formValidators["profile-pic-chng"].disableButton();
       changePictureModal.close();
+      formValidators["profile-pic-chng"].disableButton();
     })
     .catch((error) => {
       console.error(

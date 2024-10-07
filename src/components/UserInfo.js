@@ -9,7 +9,7 @@ export default class UserInfo {
     return {
       profileText: this._profileName.textContent,
       profileSubText: this._profileJob.textContent,
-      picture: this._profilePicture.src,
+      //picture: this._profilePicture.src,
     };
   }
 
