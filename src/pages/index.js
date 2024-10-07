@@ -252,7 +252,7 @@ api
   .then(([cards, userData]) => {
     cardsSection.renderItems(cards);
     userInfo.setUserInfo(userData);
-    userInfo.setUserPicture(userData);
+    userInfo.setUserPicture({ avatar: userData.avatar });
   })
   .catch((error) => {
     console.error(`Can't load card or picture: ${error}`);
