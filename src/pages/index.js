@@ -1,6 +1,7 @@
 // All Imports
 
 import {
+  confirmDeleteButton,
   profileInputText,
   profileInputSubText,
   addNewCardButton,
@@ -240,6 +241,10 @@ addNewCardButton.addEventListener("click", () => {
 
 profilePictureChngBtn.addEventListener("click", () => {
   changePictureModal.open();
+});
+
+confirmDeleteButton.addEventListener("click", () => {
+  confirmDeleteModal.open();
 });
 
 // Get CArd and Profile modal
