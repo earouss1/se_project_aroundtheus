@@ -84,7 +84,7 @@ export default class Card {
         "element__composite-like-button_active"
       );
     } else {
-      this.this._cardLikeButton.classList.remove(
+      this._cardLikeButton.classList.remove(
         "element__composite-like-button_active"
       );
     }
