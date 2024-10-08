@@ -151,7 +151,7 @@ function handleProfileEditElementSubmit(userdata) {
   api
     .setUserUpdate(data)
     .then((newData) => {
-      userInfo.setUserInfo(newData.userdata);
+      userInfo.setUserInfo(newData);
 
       editProfileModal.close();
       formValidators["edit-profile"].disableButton();

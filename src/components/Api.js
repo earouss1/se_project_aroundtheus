@@ -48,13 +48,13 @@ export default class APi {
       });
   }
 
-  setUserUpdate({ name, about }) {
+  setUserUpdate({ profileText, profileSubText }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        about: about,
+        name: profileText,
+        about: profileSubText,
       }),
     })
       .then((res) => {
