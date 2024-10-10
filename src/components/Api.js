@@ -1,0 +1,142 @@
+export default class APi {
+  constructor({ baseUrl, headers }) {
+    this._baseUrl = baseUrl;
+    this._headers = headers;
+  }
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  }
+
+  // _request(url, options) {
+  //   return fetch(url, options).then(this._checkResponse);
+  // }
+
+  getInitialCards() {
+    return fetch(`${this._baseUrl}/cards`, { headers: this._headers }).then(
+      this._checkResponse
+    );
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
+  }
+
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, { headers: this._headers }).then(
+      this._checkResponse
+    );
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
+  }
+
+  loadAllData() {
+    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
+  }
+
+  createNewCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
+  }
+
+  setUserUpdate({ profileText, profileSubText }) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: profileText,
+        about: profileSubText,
+      }),
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
+  }
+
+  deleteCards(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
+  }
+
+  addLikeforCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
+  }
+
+  removeLikefromCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+    //((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
+  }
+
+  setPictureUpdate({ pictureUrl }) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: pictureUrl,
+      }),
+    }).then(this._checkResponse);
+    //     ((res) => {
+    //       return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //       throw err;
+    //     });
+  }
+}
