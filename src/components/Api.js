@@ -19,26 +19,12 @@ export default class APi {
     return fetch(`${this._baseUrl}/cards`, { headers: this._headers }).then(
       this._checkResponse
     );
-    // ((res) => {
-    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   throw err;
-    // });
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, { headers: this._headers }).then(
       this._checkResponse
     );
-    // ((res) => {
-    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   throw err;
-    // });
   }
 
   loadAllData() {
@@ -54,13 +40,6 @@ export default class APi {
         link,
       }),
     }).then(this._checkResponse);
-    // ((res) => {
-    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   throw err;
-    // });
   }
 
   setUserUpdate({ profileText, profileSubText }) {
@@ -72,13 +51,6 @@ export default class APi {
         about: profileSubText,
       }),
     }).then(this._checkResponse);
-    // ((res) => {
-    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   throw err;
-    // });
   }
 
   deleteCards(cardId) {
@@ -86,13 +58,6 @@ export default class APi {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
-    // ((res) => {
-    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   throw err;
-    // });
   }
 
   addLikeforCard(cardId) {
@@ -100,13 +65,6 @@ export default class APi {
       method: "PUT",
       headers: this._headers,
     }).then(this._checkResponse);
-    // ((res) => {
-    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   throw err;
-    // });
   }
 
   removeLikefromCard(cardId) {
@@ -114,13 +72,6 @@ export default class APi {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
-    //((res) => {
-    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    // })
-    // .catch((err) => {
-    //   console.error(err);
-    //   throw err;
-    // });
   }
 
   setPictureUpdate({ pictureUrl }) {
@@ -131,12 +82,5 @@ export default class APi {
         avatar: pictureUrl,
       }),
     }).then(this._checkResponse);
-    //     ((res) => {
-    //       return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //       throw err;
-    //     });
   }
 }

@@ -182,15 +182,14 @@ function handleProfileEditElementSubmit(userdata) {
 }
 
 function handleChangePictureElementSubmit(userdata) {
-  const pictureUlr = userdata.profilePicUrl;
-  console.log(userdata);
-  if (!pictureUlr) {
+  const pictureUrl = userdata.profilePicUrl;
+  if (!pictureUrl) {
     console.error("Link is missing");
   }
   changePictureModal.renderLoadingMessage(true);
 
   api
-    .setPictureUpdate(pictureUlr)
+    .setPictureUpdate({ pictureUrl })
     .then((pictureData) => {
       console.log(pictureData);
       userInfo.setUserPicture(pictureData);
