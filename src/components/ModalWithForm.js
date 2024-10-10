@@ -42,8 +42,6 @@ export default class ModalWithForms extends Modal {
     this._modalForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this._modalForm.reset();
-      this.close();
     });
   }
 }

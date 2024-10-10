@@ -4,26 +4,41 @@ export default class APi {
     this._headers = headers;
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
+  }
+
+  // _request(url, options) {
+  //   return fetch(url, options).then(this._checkResponse);
+  // }
+
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    return fetch(`${this._baseUrl}/cards`, { headers: this._headers }).then(
+      this._checkResponse
+    );
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, { headers: this._headers })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    return fetch(`${this._baseUrl}/users/me`, { headers: this._headers }).then(
+      this._checkResponse
+    );
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
   }
 
   loadAllData() {
@@ -38,14 +53,14 @@ export default class APi {
         name,
         link,
       }),
-    })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
   }
 
   setUserUpdate({ profileText, profileSubText }) {
@@ -56,72 +71,72 @@ export default class APi {
         name: profileText,
         about: profileSubText,
       }),
-    })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
   }
 
   deleteCards(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
   }
 
   addLikeforCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
-    })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    }).then(this._checkResponse);
+    // ((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
   }
 
   removeLikefromCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._headers,
-    })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    }).then(this._checkResponse);
+    //((res) => {
+    //   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    // })
+    // .catch((err) => {
+    //   console.error(err);
+    //   throw err;
+    // });
   }
 
-  setPictureUpdate(pictureUrl) {
+  setPictureUpdate({ pictureUrl }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         avatar: pictureUrl,
       }),
-    })
-      .then((res) => {
-        return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-      })
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
+    }).then(this._checkResponse);
+    //     ((res) => {
+    //       return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //       throw err;
+    //     });
   }
 }

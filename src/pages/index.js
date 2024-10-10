@@ -123,19 +123,14 @@ function handleAddCardElementSubmit({ title, url }) {
       cardsSection.addItem(generateCard(cardCreated));
       addCardModal.close();
       //addFormValidator.disableButton();
-      formValidators["add-cards"].disableButton();
+      //formValidators["add-cards"].disableButton();
     })
     .catch((error) => {
       console.error("Error occured while adding card", error);
     })
     .finally(() => {
-      addCardModal.renderLoadingMessage();
+      addCardModal.renderLoadingMessage(false);
     });
-
-  // cardsSection.addItem(generateCard(data));
-  // addCardModal.close();
-  // //addFormValidator.disableButton();
-  // formValidators["add-cards"].disableButton();
 }
 
 function handleProfileEditElementSubmit(userdata) {
@@ -154,14 +149,36 @@ function handleProfileEditElementSubmit(userdata) {
       userInfo.setUserInfo(newData);
 
       editProfileModal.close();
-      formValidators["edit-profile"].disableButton();
+      //formValidators["edit-profile"].disableButton();
     })
     .catch((error) => {
       console.error("Error has occured", error);
     })
     .finally(() => {
-      editProfileModal.renderLoadingMessage();
+      editProfileModal.renderLoadingMessage(false);
     });
+
+  // api
+  //   .setUserUpdate(userdata.profileText, userdata.profileSubText)
+  //   .then(() => {
+  //     userInfo.setUserInfo(userdata);
+
+  //     editProfileModal.close();
+  //     //formValidators["edit-profile"].disableButton();
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error has occured", error);
+  //   })
+  //   .finally(() => {
+  //     editProfileModal.renderLoadingMessage(false);
+  //   });
+
+  // function makeRequest() {
+  //   return api.editProfile(inputValues).then((userData) => {
+  //     userInfo.setUserInfo(userData)
+  //   });
+  // }
+  // handleSubmit(makeRequest, profilePopup);
 }
 
 function handleChangePictureElementSubmit(userdata) {
@@ -178,7 +195,7 @@ function handleChangePictureElementSubmit(userdata) {
       console.log(pictureData);
       userInfo.setUserPicture(pictureData);
       changePictureModal.close();
-      formValidators["profile-pic-chng"].disableButton();
+      //formValidators["profile-pic-chng"].disableButton();
     })
     .catch((error) => {
       console.error(
@@ -186,7 +203,7 @@ function handleChangePictureElementSubmit(userdata) {
       );
     })
     .finally(() => {
-      changePictureModal.renderLoadingMessage();
+      changePictureModal.renderLoadingMessage(false);
     });
 }
 
@@ -204,7 +221,7 @@ function handleCardDeleteClick(card) {
         console.error("Error occured while deleting card", error);
       })
       .finally(() => {
-        confirmDeleteModal.renderLoading();
+        confirmDeleteModal.renderLoading(false);
       });
   });
 }
@@ -257,3 +274,16 @@ api
   .catch((error) => {
     console.error(`Can't load card or picture: ${error}`);
   });
+
+// function handleSubmit(request, modalInstance, loadingText = "Saving...") {
+//   modalInstance.renderLoading(true, loadingText);
+//   request()
+//     .then(() => {
+//       modalInstance.close();
+//     })
+//     .catch(console.error)
+
+//     .finally(() => {
+//       modalInstance.renderLoading(false);
+//     });
+// }
