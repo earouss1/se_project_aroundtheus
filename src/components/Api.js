@@ -14,6 +14,8 @@ export default class APi {
   // _request(url, options) {
   //   return fetch(url, options).then(this._checkResponse);
   // }
+  // url: `${this._baseUrl}/cards`
+  //options: headers: this._headers
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, { headers: this._headers }).then(
