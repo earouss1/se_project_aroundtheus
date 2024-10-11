@@ -122,8 +122,6 @@ function handleAddCardElementSubmit({ title, url }) {
     .then((cardCreated) => {
       cardsSection.addItem(generateCard(cardCreated));
       addCardModal.close();
-      //addFormValidator.disableButton();
-      //formValidators["add-cards"].disableButton();
     })
     .catch((error) => {
       console.error("Error occured while adding card", error);
@@ -134,22 +132,19 @@ function handleAddCardElementSubmit({ title, url }) {
 }
 
 function handleProfileEditElementSubmit(userdata) {
-  userInfo.setUserInfo({
-    profileText: userdata.text,
-    profileSubText: userdata["sub-text"],
-  });
   editProfileModal.renderLoadingMessage(true);
-  const data = {
-    profileText: userdata.text,
-    profileSubText: userdata["sub-text"],
-  };
   api
-    .setUserUpdate(data)
-    .then((newData) => {
-      userInfo.setUserInfo(newData);
+    .setUserUpdate({
+      profileText: userdata.text,
+      profileSubText: userdata["sub-text"],
+    })
+    .then(() => {
+      userInfo.setUserInfo({
+        name: userdata.text,
+        about: userdata["sub-text"],
+      });
 
       editProfileModal.close();
-      //formValidators["edit-profile"].disableButton();
     })
     .catch((error) => {
       console.error("Error has occured", error);
@@ -157,21 +152,6 @@ function handleProfileEditElementSubmit(userdata) {
     .finally(() => {
       editProfileModal.renderLoadingMessage(false);
     });
-
-  // api
-  //   .setUserUpdate(userdata.profileText, userdata.profileSubText)
-  //   .then(() => {
-  //     userInfo.setUserInfo(userdata);
-
-  //     editProfileModal.close();
-  //     //formValidators["edit-profile"].disableButton();
-  //   })
-  //   .catch((error) => {
-  //     console.error("Error has occured", error);
-  //   })
-  //   .finally(() => {
-  //     editProfileModal.renderLoadingMessage(false);
-  //   });
 
   // function makeRequest() {
   //   return api.editProfile(inputValues).then((userData) => {
@@ -194,7 +174,6 @@ function handleChangePictureElementSubmit(userdata) {
       console.log(pictureData);
       userInfo.setUserPicture(pictureData);
       changePictureModal.close();
-      //formValidators["profile-pic-chng"].disableButton();
     })
     .catch((error) => {
       console.error(
