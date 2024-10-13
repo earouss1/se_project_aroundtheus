@@ -58,7 +58,7 @@ export default class APi {
   }
 
   deleteCards(cardId) {
-    const url = `${this._baseUrl}/cards/${cardId}/likes`;
+    const url = `${this._baseUrl}/cards/${cardId}`;
     const options = {
       method: "DELETE",
       headers: this._headers,

@@ -172,7 +172,7 @@
           id="modal-close-button"
           type="submit"
         ></button>
-        <figure>
+        <figure class="modal__for-preview">
           <img src="" alt="" class="modal__for-preview-image" />
           <figcaption class="modal__for-preview-caption"></figcaption>
         </figure>
@@ -234,8 +234,12 @@
           name="img-qt-chng"
           novalidate
         >
-          <p class="modal__form-title">Are you sure?</p>
-          <button class="modal__submit-button" id="modal-img-qt" type="submit">
+          <p class="modal__form-title modal__form-title_fix">Are you sure?</p>
+          <button
+            class="modal__submit-button modal__submit-chng-btn"
+            id="modal-img-qt"
+            type="submit"
+          >
             Yes
           </button>
         </form>

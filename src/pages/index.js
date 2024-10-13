@@ -122,6 +122,8 @@ function handleAddCardElementSubmit({ title, url }) {
     .then((cardCreated) => {
       cardsSection.addItem(generateCard(cardCreated));
       addCardModal.close();
+      addCardModal.resetform();
+      formValidators["add-cards"].disableButton();
     })
     .catch((error) => {
       console.error("Error occured while adding card", error);

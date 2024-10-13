@@ -23,6 +23,10 @@ export default class ModalWithForms extends Modal {
     return this._modalForm;
   }
 
+  resetform() {
+    this._modalForm.reset();
+  }
+
   _getInputValues() {
     const formInputValues = {};
     this._inputList.forEach((input) => {
