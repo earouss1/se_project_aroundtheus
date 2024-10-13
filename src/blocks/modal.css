@@ -184,8 +184,8 @@
   border: none;
   width: 40px;
   height: 40px;
-  top: -31px;
-  right: -10px;
+  top: -41px;
+  right: -45px;
   position: absolute;
   padding: 0;
   margin: 0;
@@ -250,4 +250,9 @@
     height: 299px;
     margin: 40px 0;
   }*/
+
+  .modal__close-button-preview {
+    top: -10px;
+    right: -13px;
+  }
 }
