@@ -161,6 +161,10 @@
   max-height: 75vh;
 }
 
+.modal__for-preview {
+  margin: 0;
+}
+
 .modal__for-preview-caption {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
@@ -169,6 +173,7 @@
   bottom: 45px;
   left: 45px;
   color: rgba(255, 255, 255, 1);
+  margin: 0;
 }
 
 .modal__close-button-preview {
@@ -179,11 +184,16 @@
   border: none;
   width: 40px;
   height: 40px;
-  top: -31px;
-  right: -10px;
+  top: -41px;
+  right: -45px;
   position: absolute;
   padding: 0;
   margin: 0;
+}
+
+.modal__form-title_fix {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
@@ -228,5 +238,21 @@
 
   .modal__container {
     padding: 22px 22px 25px;
+  }
+
+  /*.modal__for-preview-image {
+    width: 240px;
+    margin: 0;
+  }
+
+  /*.modal__container-for-preview {
+    width: 240px;
+    height: 299px;
+    margin: 40px 0;
+  }*/
+
+  .modal__close-button-preview {
+    top: -10px;
+    right: -13px;
   }
 }

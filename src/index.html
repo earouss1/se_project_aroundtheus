@@ -16,11 +16,17 @@
       </header>
       <main class="quantum">
         <section class="profile page__add">
-          <img
-            src="<%=require('./images/jacques-cousteau.png')%>"
-            alt="The Profile Pic"
-            class="profile__avatar"
-          />
+          <div class="profile__quantum">
+            <img
+              src="<%=require('./images/jacques-cousteau.png')%>"
+              alt="The Profile Pic"
+              class="profile__avatar"
+            />
+            <button
+              class="profile__avatar-button-edit"
+              id="profile-avatar-edit"
+            ></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__text" id="profile-text">Jacques Cousteau</h1>
             <button
@@ -93,9 +99,10 @@
             ></span>
           </label>
           <button
-            class="modal__submit-button"
+            class="modal__submit-button modal__submit-button_disabled"
             id="modal-save-button"
             type="submit"
+            disabled
           >
             Save
           </button>
@@ -165,10 +172,77 @@
           id="modal-close-button"
           type="submit"
         ></button>
-        <figure>
+        <figure class="modal__for-preview">
           <img src="" alt="" class="modal__for-preview-image" />
           <figcaption class="modal__for-preview-caption"></figcaption>
         </figure>
+      </div>
+    </div>
+
+    <!-- change picture modal -->
+    <div class="modal modal__pic-chng" id="profile-chng-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close-button"
+          id="modal-close-button"
+          type="submit"
+        ></button>
+        <form
+          class="modal__form"
+          id="chng-picture-modal-form"
+          name="profile-pic-chng"
+          novalidate
+        >
+          <p class="modal__form-title">Change profile picture</p>
+          <label for="form-profile-title" class="modal__form-label">
+            <input
+              class="modal__form-input modal__form-chng-pic"
+              type="url"
+              placeholder="Enter the image url"
+              id="form-chng-pic-link"
+              required
+              name="profilePicUrl"
+            />
+            <span
+              class="modal__form-error"
+              id="form-chng-pic-link-error"
+            ></span>
+          </label>
+          <button
+            class="modal__submit-button modal__submit-button_disabled"
+            id="modal-save-button"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- are you sure modal -->
+    <div class="modal modal__confirm-delete" id="chng-img-qt-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close-button"
+          id="modal-close-button"
+          type="submit"
+        ></button>
+        <form
+          class="modal__form"
+          id="areusure-modal-form"
+          name="img-qt-chng"
+          novalidate
+        >
+          <p class="modal__form-title modal__form-title_fix">Are you sure?</p>
+          <button
+            class="modal__submit-button modal__submit-chng-btn"
+            id="modal-img-qt"
+            type="submit"
+          >
+            Yes
+          </button>
+        </form>
       </div>
     </div>
 
